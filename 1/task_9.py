@@ -4,7 +4,7 @@ def ord_by_len():
     lines = []
     print("Введите строки (для завершения ввода нажмите Ctrl+D):")
     for line in sys.stdin:
-        lines.append(line)  # Удаляем символ новой строки и добавляем строку в список
+        lines.append(line)
     return sorted(lines, key=len)
 
 
