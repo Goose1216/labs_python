@@ -1,4 +1,6 @@
-import sys, re
+import re
+import sys
+# Дан список строк с клавиатуры. Упорядочить по количеству слов в строке
 
 def ord_by_len():
     lines = []

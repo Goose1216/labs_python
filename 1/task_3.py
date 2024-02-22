@@ -1,3 +1,7 @@
+# Дана строка. Необходимо проверить образуют ли строчные символы
+# латиницы палиндром.
+
+
 def is_palindrome(string):
     alph = set('abcdefghijklmnopqrstuvwxyz')
     word = ""
