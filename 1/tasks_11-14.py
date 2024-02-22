@@ -12,3 +12,13 @@ def sort_by_subtraction(lines):
                 cnt += 1
         return cnt
 
+    def cnt_consonants(string):
+        cnt = 0
+        alph = set("бвгджзйклмнпрстфхцчшщ")
+        for letter in string:
+            if letter in alph:
+                cnt += 1
+        return cnt
+
+
+
