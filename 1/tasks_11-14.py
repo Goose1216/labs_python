@@ -20,5 +20,6 @@ def sort_by_subtraction(lines):
                 cnt += 1
         return cnt
 
+    return sorted(lines, key=lambda x: cnt_consonants(x) - cnt_vowels(x))
 
 
