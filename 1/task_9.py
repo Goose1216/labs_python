@@ -1,5 +1,4 @@
 import sys
-# Прочитать список строк с клавиатуры. Упорядочить по длине cтроки
 
 
 def ord_by_len():
@@ -9,5 +8,5 @@ def ord_by_len():
         lines.append(line)
     return sorted(lines, key=len)
 
-
+print("Прочитать список строк с клавиатуры. Упорядочить по длине cтроки")
 print("\n", *ord_by_len(), sep="")

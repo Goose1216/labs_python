@@ -47,3 +47,9 @@ def find_multiply(num):
                 break
             multi_digit_divs *= div
     return multi_digit_divs
+
+num = int(input("Введите число: "))
+print(f"Найти сумму простых делителей числа - ", find_sum(num))
+print(f"Найти количество нечетных цифр числа, больших 3 - ", count_not_even(num))
+print(f"Найти произведение таких делителей числа, сумма цифр которых меньше,\
+чем сумма цифр исходного числа - ", find_multiply(num))
