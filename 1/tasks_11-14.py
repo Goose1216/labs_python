@@ -60,3 +60,26 @@ def sort_by_ascii_2(lines):
         return max_average
 
     return sorted(lines, key=lambda x: (medium_ord(x) - max_average_triplet(x)) ** 2)
+
+
+def sort_by_most_common_letters(lines):
+    cnt_common_letters_all = {}
+
+    for letter in "".join(lines):
+        if letter in cnt_common_letters_all:
+            cnt_common_letters_all[letter] += 1
+        else:
+            cnt_common_letters_all[letter] = 1
+    most_common_letter = max(cnt_common_letters_all, key=cnt_common_letters_all.get)
+
+    def cnt_all_letter_in_word(word):
+        cnt_common_letters_word = {}
+        for letter in word:
+            if letter in cnt_common_letters_word:
+                cnt_common_letters_word[letter] += 1
+            else:
+                cnt_common_letters_word[letter] = 1
+
+
+
+    return sorted(lines, )
