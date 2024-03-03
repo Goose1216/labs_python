@@ -51,11 +51,12 @@ def sort_by_ascii_2(lines):
         sum_ord = sum(list(map(lambda x: ord(x), line)))
         return round(sum_ord / len(line), 4)
 
-    def max_average_triplet(characters):
+    def max_average_triplet(letters):
         max_average = 0
-        for i in range(len(characters) - 2):
-            triplet = characters[i:i + 3]
+        for i in range(len(letters) - 2):
+            triplet = letters[i:i + 3]
             average = sum(ord(c) for c in triplet) / 3
             max_average = max(max_average, average)
         return max_average
 
+    return sorted(lines, key=lambda x: (medium_ord(x) - max_average_triplet(x)) ** 2)
