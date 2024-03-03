@@ -71,15 +71,16 @@ def sort_by_most_common_letters(lines):
         else:
             cnt_common_letters_all[letter] = 1
     most_common_letter = max(cnt_common_letters_all, key=cnt_common_letters_all.get)
+    cnt_most_commot_letter = cnt_common_letters_all[most_common_letter]
 
     def cnt_all_letter_in_word(word):
         cnt_common_letters_word = {}
+        cnt_common_letters_word.setdefault(0)
         for letter in word:
             if letter in cnt_common_letters_word:
                 cnt_common_letters_word[letter] += 1
             else:
                 cnt_common_letters_word[letter] = 1
+        return cnt_common_letters_word
 
-
-
-    return sorted(lines, )
+    return sorted(lines, key = lambda x: (cnt_most_commot_letter - cnt_all_letter_in_word(x)[most_common_letter]) ** 2)
