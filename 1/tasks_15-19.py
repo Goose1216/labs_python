@@ -12,3 +12,13 @@ def cycle_shift(array):
         array_new[(i + 2) % (len_array)] = array[i]
     return array_new
 
+def cycle_shift_2(array):
+    """
+    2. Дан целочисленный массив. Необходимо осуществить циклический
+    сдвиг элементов массива вправо на одну позицию.
+    """
+    len_array = len(array)
+    array_new = deepcopy(array)
+    for i in range(len_array):
+        array_new[(i + 1) % (len_array)] = array[i]
+    return array_new
