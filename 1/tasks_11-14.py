@@ -33,4 +33,10 @@ def sort_by_ascii(lines):
         sum_ord = sum(list(map(lambda x: ord(x), line)))
         return round(sum_ord / len(line), 4)
 
+    first_meduim = medium_ord(lines[0])
+    lines_new = []
+    for word in lines:
+        lines_new.append((word, (medium_ord(word) - first_meduim) ** 2))
+    return lines_new
+
 
