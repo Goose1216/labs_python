@@ -12,6 +12,7 @@ def cycle_shift(array):
         array_new[(i + 2) % (len_array)] = array[i]
     return array_new
 
+
 def cycle_shift_2(array):
     """
     2. Дан целочисленный массив. Необходимо осуществить циклический
@@ -22,3 +23,15 @@ def cycle_shift_2(array):
     for i in range(len_array):
         array_new[(i + 1) % (len_array)] = array[i]
     return array_new
+
+
+def cnt_even_num(array):
+    """
+    3. Дан целочисленный массив. Найти количество чётных элементов.
+    """
+    cnt_even = 0
+    for num in array:
+        if isinstance(num, int) and num & 1 == 0:
+            cnt_even += 1
+    return cnt_even
+
