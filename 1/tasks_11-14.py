@@ -39,4 +39,13 @@ def sort_by_ascii(lines):
         lines_new.append((word, (medium_ord(word) - first_meduim) ** 2))
     return lines_new
 
+def sort_by_ascii_2(lines):
+    """
+    3. В порядке увеличения квадратичного отклонения между средним
+    весом ASCII-кода символа в строке и максимально среднего ASCII-кода
+    тройки подряд идущих символов в строке.
+    """
 
+    def medium_ord(line):
+        sum_ord = sum(list(map(lambda x: ord(x), line)))
+        return round(sum_ord / len(line), 4)
