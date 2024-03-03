@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 def sort_by_subtraction(lines):
     """
     1. Отсортировать строки в порядке увеличения разницы между количеством согласных и
@@ -63,6 +65,10 @@ def sort_by_ascii_2(lines):
 
 
 def sort_by_most_common_letters(lines):
+    """
+    4. В порядке увеличение встречаемости самого распространенного символа в наборе строк от частоты
+    его встречаемости в данной строке.
+    """
     cnt_common_letters_all = {}
 
     for letter in "".join(lines):
@@ -75,7 +81,7 @@ def sort_by_most_common_letters(lines):
 
     def cnt_all_letter_in_word(word):
         cnt_common_letters_word = {}
-        cnt_common_letters_word.setdefault(0)
+        cnt_common_letters_word = defaultdict(lambda: 0, cnt_common_letters_word)
         for letter in word:
             if letter in cnt_common_letters_word:
                 cnt_common_letters_word[letter] += 1
@@ -83,4 +89,19 @@ def sort_by_most_common_letters(lines):
                 cnt_common_letters_word[letter] = 1
         return cnt_common_letters_word
 
-    return sorted(lines, key = lambda x: (cnt_most_commot_letter - cnt_all_letter_in_word(x)[most_common_letter]) ** 2)
+    lines_new = []
+    for word in lines:
+        lines_new.append((word, (cnt_most_commot_letter - cnt_all_letter_in_word(word)[most_common_letter]) ** 2))
+    return sorted(lines_new, key = lambda x: x[1])
+
+
+choice = {1: sort_by_subtraction, 2: sort_by_ascii, 3: sort_by_ascii_2, 4: sort_by_most_common_letters}
+choice_by_user = int(input(f"Выберите задачу:{choice[1].__doc__}, {choice[2].__doc__}, {choice[3].__doc__}, {choice[4].__doc__}"))
+print("Введите строки (для завершения ввода нажмите Еnter дважды) :")
+lines = []
+while True:
+    string = input()
+    if string == "":
+        break
+    lines.append(string)
+print(*choice[choice_by_user](lines), sep ='\n')
