@@ -35,3 +35,18 @@ def cnt_even_num(array):
             cnt_even += 1
     return cnt_even
 
+
+def cnt_even_min_num(array):
+    """
+    Дан целочисленный массив. Необходимо найти количество минимальных элементов.
+    """
+    min_num = float("inf")
+    for num in array:
+        if isinstance(num, int):
+            min_num = min(num, min_num)
+    cnt = 0
+    for num in array:
+        if num == min_num:
+            cnt += 1
+    return cnt
+
