@@ -17,6 +17,14 @@ def check_files(cnt_operations, files):
     for i in range(cnt_operations):
         operation, file_name = input().split()
         if operations[operation] in files[file_name]:
-            print("Access denied")
-        else:
             print("OK")
+        else:
+            print("Access denied")
+
+
+cnt_files = int(input("Введите количество файлов: "))
+print("Введите файлы и права доступа")
+files = create_files(cnt_files)
+cnt_operations = int(input("Введите количество операций над файлами: "))
+print("Введите операции:")
+check_files(cnt_operations, files)
