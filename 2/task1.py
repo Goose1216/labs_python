@@ -1,3 +1,6 @@
+"""
+Вариант 7
+"""
 n = int(input())
 set_yes = set()
 set_no = set()
