@@ -1,8 +1,12 @@
+import abc
 
-class Quad:
 
-    def __init__(self, h1, h2, h3, h4):
-        self.coord = [h1, h2, h3, h4]
+class Figure(abc.ABC):
+    def init(self):
+        self.coord = []
+
+    def point_in_figure(self, xp, yp, coord):
+        pass
 
     def move(self, x, y):
         coord_changes = (x, y)
@@ -19,9 +23,31 @@ class Quad:
             return True
         return False
 
+
+class Quad(Figure):
+
+    def init(self, h1, h2, h3, h4):
+        super().init()
+        self.coord = [h1, h2, h3, h4]
+
     @staticmethod
     def point_in_figure(xp, yp, coord):
         if (coord[0][0]) <= xp <= (coord[1][0]) and (coord[0][1] <= yp <= coord[2][1]):
             return True
         return False
 
+
+class Pentagon(Figure):
+
+    def init(self, h1, h2, h3, h4, h5):
+        super().init()
+        self.coord = [h1, h2, h3, h4, h5]
+
+    @staticmethod
+    def point_in_figure(xp, yp, coord):
+        ans = False
+        for i in range(len(coord)):
+            if (((coord[i][1] <= yp <= coord[i - 1][1]) or (coord[i - 1][1] <= yp <= coord[i][1])) and
+                    (xp >= (coord[i - 1][0] - coord[i][0]) * (yp - coord[i][1]) / (coord[i - 1][1] - coord[i][1]) + coord[i][1])):
+                ans = not ans
+        return ans
