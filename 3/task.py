@@ -2,7 +2,7 @@ import abc
 
 
 class Figure(abc.ABC):
-    def init(self):
+    def __init__(self):
         self.coord = []
 
     def point_in_figure(self, xp, yp, coord):
@@ -26,7 +26,7 @@ class Figure(abc.ABC):
 
 class Quad(Figure):
 
-    def init(self, h1, h2, h3, h4):
+    def __init__(self, h1, h2, h3, h4):
         super().init()
         self.coord = [h1, h2, h3, h4]
 
@@ -39,7 +39,7 @@ class Quad(Figure):
 
 class Pentagon(Figure):
 
-    def init(self, h1, h2, h3, h4, h5):
+    def __init__(self, h1, h2, h3, h4, h5):
         super().init()
         self.coord = [h1, h2, h3, h4, h5]
 
