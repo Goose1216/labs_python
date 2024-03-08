@@ -21,4 +21,7 @@ class Quad:
 
     @staticmethod
     def point_in_figure(xp, yp, coord):
-        pass
+        if (coord[0][0]) <= xp <= (coord[1][0]) and (coord[0][1] <= yp <= coord[2][1]):
+            return True
+        return False
+
