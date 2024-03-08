@@ -27,7 +27,7 @@ class Figure(abc.ABC):
 class Quad(Figure):
 
     def __init__(self, h1, h2, h3, h4):
-        super().init()
+        super().__init__()
         self.coord = [h1, h2, h3, h4]
 
     @staticmethod
@@ -40,7 +40,7 @@ class Quad(Figure):
 class Pentagon(Figure):
 
     def __init__(self, h1, h2, h3, h4, h5):
-        super().init()
+        super().__init__()
         self.coord = [h1, h2, h3, h4, h5]
 
     @staticmethod
@@ -51,3 +51,11 @@ class Pentagon(Figure):
                     (xp >= (coord[i - 1][0] - coord[i][0]) * (yp - coord[i][1]) / (coord[i - 1][1] - coord[i][1]) + coord[i][1])):
                 ans = not ans
         return ans
+
+f1 = Quad([0, 0], [1, 0], [1, 1], [0, 1])
+print("Квадрат - ", *f1.coord)
+f1.move(3, 0)
+f2 = Pentagon([-4, 1], [-2, 4], [2, 5], [5, 2], [0, -3])
+print(f1.is_intersect(f2))
+print("Квадрат - ", *f1.coord)
+print("Пятиугольник - ", *f2.coord)
