@@ -10,4 +10,27 @@ def fill_tuple():
         data.append((num_house, weight_house))
 
 
+def first_enum():
+    if max_len >= len_road // 2:
+        return sum(x[1] for x in data)
+    best_num_house = 0
+    len_left, len_right = 0, 0
+    num_house, weight_house = data[0]
+    sum_weight = -(weight_house * 2)
+    i = -1
+    len_left_buffer = len_left
+    while len_left_buffer < max_len:
+        sum_weight += data[0 + i + 1]
+        len_left = len_left_buffer
+        len_left_buffer = (num_house - data[0 + i][0])
+        if len_left_buffer < 0:
+            len_left_buffer = (max_len - data[0 + i][0]) + num_house
+        i -= 1
+    i = 1
+    len_right_buffer = len_right
+    while len_right_buffer < max_len:
+        sum_weight += data[0 + i - 1]
+        len_right = len_right_buffer
+        len_right_buffer = (data[0 + i][0] - num_house)
+        i += 1
 file.close()
