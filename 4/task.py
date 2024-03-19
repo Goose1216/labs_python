@@ -34,6 +34,11 @@ def first_enum():
         sum_weight += data[0 + i - 1]
         len_right = len_right_buffer
         len_right_buffer = (data[0 + i][0] - num_house)
+        if len_right_buffer < 0:
+            len_right_buffer = (max_len - num_house + data[0 + i][0])
         i += 1
 
+
+def other_enum():
+    pass
 file.close()
