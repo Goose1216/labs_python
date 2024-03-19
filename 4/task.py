@@ -1,3 +1,5 @@
+#Вариант 7
+
 file = open('test.txt', 'r', encoding='utf-8')
 read_file = file.readlines()
 count_house, len_road, weight_max, max_len = (int(x) for x in read_file[0].split())
@@ -33,4 +35,5 @@ def first_enum():
         len_right = len_right_buffer
         len_right_buffer = (data[0 + i][0] - num_house)
         i += 1
+
 file.close()
