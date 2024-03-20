@@ -47,15 +47,10 @@ def enum():
         return first_enum()
     cnt_packets_min = cnt_packets_first
     cnt_packets_last = cnt_packets_first
-    num_house_last = data[0][0]
-    num_house_left_last = data[ind_house_left_last][0]
     cnt_packets_left_last = math.ceil(data[ind_house_left_last][1] / weight_max)
     num_house_right_last = data[ind_house_right_last][0]
-    cnt_packets_right_last = math.ceil(data[ind_house_right_last][1] / weight_max)
     for ind_house_new in range(1, len(data)):
         ind_house_left_new = (ind_house_left_last + 1) % count_house
-        cnt_packets_left_new = math.ceil(data[ind_house_left_new][1] / weight_max)
-        ind_house_right_new = (num_house_right_last + 1) % count_house
         cnt_packets_right_new = math.ceil(data[ind_house_left_new][1] / weight_max)
         cnt_packets_new = cnt_packets_last - cnt_packets_left_last + cnt_packets_right_new
         cnt_packets_min = min(cnt_packets_new, cnt_packets_min)
